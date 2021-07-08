@@ -1,41 +1,46 @@
 # ReadME Generator
-    ## Table of Contents
 
-    * [Description](#installation)
-    * [Licenses](#licenses)
-    * [Instructions For Install](#instructionsForInstall)
-    * [User Guide](#userGuide)
-    * [Contributing Developers](#contributingDevelopers)
-    * [Tests](#tests)
-    -------
+## Table of Contents
 
-    ## Description
+- [Description](#installation)
+- [Licenses](#licenses)
+- [Instructions For Install](#instructionsForInstall)
+- [User Guide](#userGuide)
+- [Contributing Developers](#contributingDevelopers)
+- [Tests](#tests)
 
-    Create a ReadME file using the command line
+---
 
-    ## Licenses
-    
-    None
+## Description
 
-    ## Instructions for Install
-    
-    npm init, npm i inquirer
+A generator used to create a ReadME using command line prompts and answers.
 
-    ## User Guide
-    
-    run node script.js in the command line. follow and answer the prompts shown. If successful, your ReadME will be created.
+## Licenses
 
-    ## Contributing Developers
-    
-    jdrabot
+None
 
-    ## Tests
-    
-    NA
+## Instructions for Install
 
+use npm init and npm i inquirer for dependencies. create a .gitignore for node_modules.
 
+## User Guide
 
-    ### Contact
-    
-    * GitHub: jdrabot
-    * Email: jdrabot@hotmail.com
+In the command line, use node script.js and follow the prompts. If done correctly, your ReadME will be created for you.
+
+## Contributing Developers
+
+jdrabot
+
+## Tests
+
+NA
+
+## Deployment
+
+https://youtu.be/YNg95qYqAhs
+https://github.com/jdrabot/READ_ME_Generator
+
+### Contact
+
+- GitHub: jdrabot
+- Email: jdrabot@hotmail.com
