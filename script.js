@@ -30,7 +30,7 @@ inquirer.prompt(
         {
             type: "input",
             message= "what is your GitHub username?",
-            name: "username",
+            name: "github",
             validate: (value) => {
                 if (value) { return true }
                 else {
@@ -90,5 +90,50 @@ inquirer.prompt(
         },
     ]
 ).then(({
+    title,
+    description,
+    username,
+    email,
+    licenses,
+    instructionsForInstall,
+    userGuide,
+    contributingDevelopers,
+    tests
+}) => {
+    const template = `# ${title}
 
-}))
+    * [Description](#installation)
+    * [Licenses](#licenses)
+    * [Instructions For Install](#instructionsForInstall)
+    * [User Guide](#userGuide)
+    * [Contributing Developers](#contributingDevelopers)
+    * [Tests](#tests)
+    ## Description
+    ${description}
+    ## Licenses
+    ${licenses}
+    ## Instructions for Install
+    ${instructionsForInstall}
+    ## User Guide
+    ${userGuide}
+    ## Contributing Developers
+    ${contributingDevelopers}
+    ## Tests
+    ${tests}
+
+    # Contact
+    * GitHub: ${username}
+    * Email: ${email}`;
+
+    createNewFile(title, template);
+}
+);
+
+function createNewFile(fileName, data) {
+    fs.writeFile(`./${fileName.toLowerCase().split(' ').join('')}.md`, data, (err) => {
+        if (err) {
+            console.log(err)
+        }
+        console.log("Your README has been created");
+    });
+};
