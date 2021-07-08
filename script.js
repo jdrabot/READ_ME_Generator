@@ -7,48 +7,24 @@ inquirer.prompt(
             type: "input",
             message= "what is the project's title?",
             name: "title",
-            validate: (value) => {
-                if (value) { return true }
-                else {
-                    return "enter a value to continue."
-                }
-            },
         },
 
         {
             type: "input",
             message= "what is the project's description?",
             name: "description",
-            validate: (value) => {
-                if (value) { return true }
-                else {
-                    return "enter a value to continue."
-                }
-            },
         },
 
         {
             type: "input",
             message= "what is your GitHub username?",
             name: "github",
-            validate: (value) => {
-                if (value) { return true }
-                else {
-                    return "enter a value to continue."
-                }
-            },
         },
 
         {
             type: "input",
             message= "what is your email address?",
             name: "email",
-            validate: (value) => {
-                if (value) { return true }
-                else {
-                    return "enter a value to continue."
-                }
-            },
         },
 
         {
@@ -56,12 +32,6 @@ inquirer.prompt(
             message= "what license(s) does your project have?",
             name: "licenses",
             choices: ["None", "MIT", "Apache 2.0", "GPL 3.0", "BSD 3"],
-            validate: (value) => {
-                if (value) { return true }
-                else {
-                    return "enter a value to continue."
-                }
-            },
         },
 
         {
@@ -100,32 +70,8 @@ inquirer.prompt(
     contributingDevelopers,
     tests
 }) => {
-    const template = `# ${title}
-
-    * [Description](#installation)
-    * [Licenses](#licenses)
-    * [Instructions For Install](#instructionsForInstall)
-    * [User Guide](#userGuide)
-    * [Contributing Developers](#contributingDevelopers)
-    * [Tests](#tests)
-    ## Description
-    ${description}
-    ## Licenses
-    ${licenses}
-    ## Instructions for Install
-    ${instructionsForInstall}
-    ## User Guide
-    ${userGuide}
-    ## Contributing Developers
-    ${contributingDevelopers}
-    ## Tests
-    ${tests}
-
-    # Contact
-    * GitHub: ${username}
-    * Email: ${email}`;
-
-    createNewFile(title, template);
+    const template =
+        createNewFile(title, template);
 }
 );
 
