@@ -1,32 +1,41 @@
 # ReadME Generator
     ## Table of Contents
+
     * [Description](#installation)
     * [Licenses](#licenses)
     * [Instructions For Install](#instructionsForInstall)
     * [User Guide](#userGuide)
     * [Contributing Developers](#contributingDevelopers)
     * [Tests](#tests)
-    * 
+    -------
+
     ## Description
-    Creating a ReadME using command prompts only
+
+    Create a ReadME file using the command line
 
     ## Licenses
-    MIT
+    
+    None
 
     ## Instructions for Install
+    
     npm init, npm i inquirer
 
     ## User Guide
-    follow prompts to create the ReadME
+    
+    run node script.js in the command line. follow and answer the prompts shown. If successful, your ReadME will be created.
 
     ## Contributing Developers
-    NA
+    
+    jdrabot
 
     ## Tests
+    
     NA
 
 
 
-    # Contact
-    * GitHub: undefined
+    ### Contact
+    
+    * GitHub: jdrabot
     * Email: jdrabot@hotmail.com
