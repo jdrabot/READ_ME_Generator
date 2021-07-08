@@ -1,85 +1,75 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./util/generateMarkdowns.js");
 
-inquirer.prompt(
-    [
-        {
-            type: "input",
-            message= "what is the project's title?",
-            name: "title",
-        },
+const questions = [
+    {
+        type: "input",
+        name: "title",
+        message: "what is the project's title?",
+    },
 
-        {
-            type: "input",
-            message= "what is the project's description?",
-            name: "description",
-        },
+    {
+        type: "input",
+        name: "description",
+        message: "what is the project's description?",
+    },
 
-        {
-            type: "input",
-            message= "what is your GitHub username?",
-            name: "github",
-        },
+    {
+        type: "input",
+        name: "github",
+        message: "what is your GitHub username?",
+    },
 
-        {
-            type: "input",
-            message= "what is your email address?",
-            name: "email",
-        },
+    {
+        type: "input",
+        name: "email",
+        message: "what is your email address?",
+    },
 
-        {
-            type: "list",
-            message= "what license(s) does your project have?",
-            name: "licenses",
-            choices: ["None", "MIT", "Apache 2.0", "GPL 3.0", "BSD 3"],
-        },
+    {
+        type: "list",
+        name: "licenses",
+        message: "what license(s) does your project have?",
+        choices: ["None", "MIT", "Apache 2.0", "GPL 3.0", "BSD 3"],
+    },
 
-        {
-            type: "input",
-            message= "Installation Instructions:",
-            name: "instructionsForInstall",
+    {
+        type: "input",
+        name: "instructionsForInstall",
+        message: "Installation Instructions:",
 
-        },
+    },
 
-        {
-            type: "input",
-            message= "User Guide for application:",
-            name: "userGuide",
-        },
+    {
+        type: "input",
+        name: "userGuide",
+        message: "User Guide for application:",
+    },
 
-        {
-            type: "input",
-            message= "Contributing Developers on application:",
-            name: "contributingDevelopers",
-        },
+    {
+        type: "input",
+        name: "contributingDevelopers",
+        message: "Contributing Developers on application:",
+    },
 
-        {
-            type: "input",
-            message= "Tests",
-            name: "tests",
-        },
-    ]
-).then(({
-    title,
-    description,
-    username,
-    email,
-    licenses,
-    instructionsForInstall,
-    userGuide,
-    contributingDevelopers,
-    tests
-}) => {
-    const template =
-        createNewFile(title, template);
-}
-);
+    {
+        type: "input",
+        name: "tests",
+        message: "Tests",
+    },
+]
 
-function createNewFile(fileName, data) {
-    fs.writeFile(`./${fileName.toLowerCase().split(' ').join('')}.md`, data, (err) => {
-        if (err) {
-            console.log(err)
-        }
-        console.log("Your README has been created");
-    });
+function writeTheFile(fileName, data) {
+    fs.writeFile(fileName, data, err => err ? console.log(err) : console.log("Created README Successfully"));
 };
+
+function initialize() {
+    inquirer.prompt(questions)
+        .then((data) => {
+            const answers = generateMarkdown(data);
+            writeTheFile("README.md", answers);
+        })
+}
+
+initialize();
