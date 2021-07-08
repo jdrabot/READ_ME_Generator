@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./util/generateMarkdowns.js");
 
+// Questions for the prompts in the command line
 const questions = [
     {
         type: "input",
@@ -60,6 +61,7 @@ const questions = [
     },
 ]
 
+// Functions to create the prompts, recieve responses, and create the ReadME
 function writeTheFile(fileName, data) {
     fs.writeFile(fileName, data, err => err ? console.log(err) : console.log("Created README Successfully"));
 };
